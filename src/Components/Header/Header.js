@@ -1,24 +1,24 @@
-import React from 'react'; 
+import React, { Component } from 'react';
 
 
 class Header extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            sesion: False
+            sesion: false
 
         };
     }
 
     cambiarEstado() {
-        if(this.state.sesion === False) {
+        if(this.state.sesion === false) {
             this.setState({
-                sesion: True
+                sesion: true
             })
         }
         else{
             this.setState({
-                sesion: False
+                sesion: false
             })
         }
     }
