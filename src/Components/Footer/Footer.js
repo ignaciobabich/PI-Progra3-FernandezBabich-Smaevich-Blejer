@@ -6,13 +6,13 @@ function Footer(){
             <nav>
             <ul class="nav nav-tabs my-4">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">Tommy Smaevich</a>
+                    <a class="nav-link" >Tommy Smaevich</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="movies.html">Ignacio Fernandez Babich</a>
+                    <a class="nav-link" >Ignacio Fernandez Babich</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="series.html">Luca Blejer</a>
+                    <a class="nav-link" >Luca Blejer</a>
                 </li>
             </ul>
         </nav>
