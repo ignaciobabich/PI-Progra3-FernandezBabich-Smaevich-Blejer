@@ -5,7 +5,7 @@ function Footer(){
         <React.Fragment>
             <nav>
                 <footer class="alert alert-primary mt-4 text-center">
-                    <p class="mb-0">Integrante 1 | Integrante 2 | Integrante 3</p>
+                    <p class="mb-0">Tommy Smaevich | Ignacio Babich | Luca Blejer</p>
                 </footer>
             </nav>
         </React.Fragment>
