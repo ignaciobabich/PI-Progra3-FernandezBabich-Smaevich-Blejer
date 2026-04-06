@@ -4,6 +4,7 @@ import Footer from './Components/Footer/Footer';
 import SearchBar from './Components/SearchBar/SearchBar';
 import Card from './Components/Card/Card';
 import SeccionPeliculas from './Components/SeccionPeliculas/SeccionPeliculas';
+import CardsForTVShows from './Components/CardsForTVShows/CardsForTVShows';
 
 function App() {
   return (
@@ -12,6 +13,8 @@ function App() {
       <SearchBar />
       <SeccionPeliculas/>
       <SeccionPeliculas/>
+      <CardsForTVShows/>
+      <CardsForTVShows/>
       <Footer />
     </div>
   );
