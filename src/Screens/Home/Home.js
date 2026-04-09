@@ -4,13 +4,15 @@ import Footer from '../../Components/Footer/Footer';
 import SearchBar from '../../Components/SearchBar/SearchBar'
 
 function Register(){
-    return(
-        <React.Fragment>
-            <Header/>
-            <SearchBar/>
-            <section className = 'Peliculas'>
-                
-            </section>
-        </React.Fragment>
-    )
+  return (
+    <div className="App">
+      <Header />
+      <SearchBar />
+      <SeccionPeliculas/>
+      <SeccionPeliculas/>
+      <CardsForTVShows/>
+      <CardsForTVShows/>
+      <Footer />
+    </div>
+  );
 }
