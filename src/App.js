@@ -6,19 +6,20 @@ import SearchBar from './Components/SearchBar/SearchBar';
 import SeccionPeliculas from './Components/SeccionPeliculas/SeccionPeliculas';
 import CardsForTVShows from './Components/CardsForTVShows/CardsForTVShows';
 import Home from './Screens/Home/Home';
+import SectionPelis from './Components/SectionPelis/SectionPelis'
 
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <Home/>
+      <Home>
         <SearchBar />
-        <SeccionPeliculas/>
+        <SectionPelis/>
         <SeccionPeliculas/>
         <CardsForTVShows/>
         <CardsForTVShows/>
-      
+      </Home>
       <Footer />
     </div>
   );
