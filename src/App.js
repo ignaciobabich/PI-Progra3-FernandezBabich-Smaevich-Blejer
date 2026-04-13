@@ -13,13 +13,13 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Home>
+      <Home/>
         <SearchBar />
         <SectionPelis/>
         <SeccionPeliculas/>
         <CardsForTVShows/>
         <CardsForTVShows/>
-      </Home>
+      
       <Footer />
     </div>
   );

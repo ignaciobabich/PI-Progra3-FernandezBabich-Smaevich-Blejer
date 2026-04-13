@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import RMcard from "../Card/Card";
+import Card from "../Card/Card";
 
-
-class SeccionRM extends Component {
+class SectionPelis extends Component {
     constructor() {
         super();
         this.state = {
@@ -13,7 +12,7 @@ class SeccionRM extends Component {
     }
 
     componentDidMount() {
-        fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1')
+        fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=6ee91af43dc9c7cc853f7185e80bbf53')
             .then(response => response.json())
             .then(data => {this.setState ({
                     peliculas: data.results
@@ -46,6 +45,8 @@ class SeccionRM extends Component {
 
 
 }
+
+export default SectionPelis
 
 
 
