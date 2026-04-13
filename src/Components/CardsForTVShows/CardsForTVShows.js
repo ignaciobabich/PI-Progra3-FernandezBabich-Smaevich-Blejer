@@ -1,18 +1,46 @@
-import React from 'react';
-import TVShows from '../TVShows/TVShows';
+import React, { Component } from "react";  
 
-function CardsForTVShows() {
-    return(
-        <React.Fragment>
-            <h2 class="alert alert-warning">Popular TV shows this week</h2>
-            <section class="row cards" id="tv-show">
-                <TVShows/>
-                <TVShows/>
-                <TVShows/>
-                <TVShows/>
-            </section>
-        </React.Fragment>
-    )
+
+class CardsForTVShows extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            textoBoton: "Ver Mas",
+            ClaseOculta: "oculta"
+        };
+    }
+
+    cambiarEstado() {
+        if(this.state.textoBoton === "Ver Mas"){
+            this.setState({
+                textoBoton: "Ver Menos",
+                ClaseOculta: ""
+            })
+        }
+        else{
+            this.setState({
+                textoBoton:"Ver Mas",
+                ClaseOculta: "oculta"
+            })
+        }
+    }
+
+    render() {
+        return(
+            <article class="single-card-movie">
+                <img src= {'https://image.tmdb.org/t/p/w342/' + this.props.imagen} class="card-img-top" alt="..."/>
+                <div class="cardBody">
+                    <h5 class="card-title">{this.props.nombre}</h5>
+                    <button className='more' onClick={() => this.cambiarEstado()}>{this.state.textoBoton}</button>
+                        <section className='extra'>
+                            <a href="Detalle.js" className={this.state.ClaseOculta}>{this.props.descripcion}</a>
+                        </section>
+                    <a href="" class="btn alert-primary">🩶</a>
+                </div>
+                </article>
+        )
+    }
 }
+
 
 export default CardsForTVShows
