@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Card from "../Card/Card";
-import "./SectionPelis.css"
 
 
 class TVShows extends Component {
@@ -17,7 +16,7 @@ class TVShows extends Component {
         fetch('https://api.themoviedb.org/3/discover/tv?api_key=6ee91af43dc9c7cc853f7185e80bbf53')
             .then(response => response.json())
             .then(data => {this.setState ({
-                    peliculas: data.results
+                    peliculas: data.results.slice(0,4)
                 });
             })
             .catch((error) => console.log(error));
@@ -28,6 +27,7 @@ class TVShows extends Component {
     render() {
     return (
       <section className="card-container">
+        <h2 class="alert alert-primary">Popular TVShows this week</h2>
         {this.state.peliculas.length === 0 ? (
           <h3>Cargando...</h3>
         ) : (

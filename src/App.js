@@ -17,9 +17,7 @@ function App() {
       <Home/>
         <SearchBar />
         <SectionPelis/>
-        <SeccionPeliculas/>
         <TVShows/>
-        <CardsForTVShows/>
       
       <Footer />
     </div>
