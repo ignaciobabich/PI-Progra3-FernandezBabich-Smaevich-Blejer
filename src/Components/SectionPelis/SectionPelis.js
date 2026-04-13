@@ -13,7 +13,7 @@ class SeccionRM extends Component {
     }
 
     componentDidMount() {
-        fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1')
+        fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=6ee91af43dc9c7cc853f7185e80bbf53')
             .then(response => response.json())
             .then(data => {this.setState ({
                     peliculas: data.results

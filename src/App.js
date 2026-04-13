@@ -13,11 +13,12 @@ function App() {
     <div className="App">
       <Header />
       <Home/>
-      <SearchBar />
-      <SeccionPeliculas/>
-      <SeccionPeliculas/>
-      <CardsForTVShows/>
-      <CardsForTVShows/>
+        <SearchBar />
+        <SeccionPeliculas/>
+        <SeccionPeliculas/>
+        <CardsForTVShows/>
+        <CardsForTVShows/>
+      
       <Footer />
     </div>
   );
