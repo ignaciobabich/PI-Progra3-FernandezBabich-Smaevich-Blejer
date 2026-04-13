@@ -27,7 +27,7 @@ class Card extends Component {
     render() {
         return(
             <article class="single-card-movie">
-                <img src={this.props.imagen} class="card-img-top" alt="..."/>
+                <img src= {'https://image.tmdb.org/t/p/w342/' + this.props.imagen} class="card-img-top" alt="..."/>
                 <div class="cardBody">
                     <h5 class="card-title">{this.props.nombre}</h5>
                     <button className='more' onClick={() => this.cambiarEstado()}>{this.state.textoBoton}</button>
