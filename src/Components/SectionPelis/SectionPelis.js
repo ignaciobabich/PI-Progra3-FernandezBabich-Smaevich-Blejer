@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import RMcard from "../Card/Card";
+import Card from "../Card/Card";
 
-
-class SeccionRM extends Component {
+class SectionPelis extends Component {
     constructor() {
         super();
         this.state = {
@@ -46,6 +45,8 @@ class SeccionRM extends Component {
 
 
 }
+
+export default SectionPelis
 
 
 
