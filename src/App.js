@@ -7,6 +7,7 @@ import SeccionPeliculas from './Components/SeccionPeliculas/SeccionPeliculas';
 import CardsForTVShows from './Components/CardsForTVShows/CardsForTVShows';
 import Home from './Screens/Home/Home';
 import SectionPelis from './Components/SectionPelis/SectionPelis'
+import TVShows from './Components/TVShows/TVShows';
 
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
         <SearchBar />
         <SectionPelis/>
         <SeccionPeliculas/>
-        <CardsForTVShows/>
+        <TVShows/>
         <CardsForTVShows/>
       
       <Footer />
