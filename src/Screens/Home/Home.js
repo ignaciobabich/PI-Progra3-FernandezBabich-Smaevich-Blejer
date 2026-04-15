@@ -22,6 +22,7 @@ class Home extends Component{
         return(
             <>
             
+            
                { this.state.datos.length === 0 ? <h3>Cargar...</h3> :
                
                 this.state.datos.map((elemento, idx) => <li key={idx + elemento.title}>
