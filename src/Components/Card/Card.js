@@ -1,5 +1,6 @@
 import React, { Component } from "react";  
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import "././././public/css/styles.css"
 
 class Card extends Component {
     constructor(props){

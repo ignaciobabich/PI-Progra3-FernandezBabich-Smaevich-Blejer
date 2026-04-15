@@ -27,7 +27,7 @@ class CardsForTVShows extends Component {
 
     render() {
         return(
-            <article class="single-card-movie">
+            <article class="single-card-movie"> 
                 <img src= {'https://image.tmdb.org/t/p/w342/' + this.props.imagen} class="card-img-top" alt="..."/>
                 <div class="cardBody">
                     <h5 class="card-title">{this.props.nombre}</h5>
