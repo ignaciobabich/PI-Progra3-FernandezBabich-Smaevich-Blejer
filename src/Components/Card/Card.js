@@ -1,13 +1,14 @@
 import React, { Component } from "react";  
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import "./Card.css"
+
 class Card extends Component {
     constructor(props){
         super(props);
         this.state = {
             textoBoton: "Ver Mas",
             ClaseOculta: "oculta",
-            Favoritos: "Agregar a favoritos"
+            Favoritos: "🩶"
         };
     }
 
@@ -27,9 +28,9 @@ class Card extends Component {
     }
 
     cambiarEstadoFav() {
-        if(this.setState.Favoritos === "Agregar a favoritos"){
+        if(this.setState.Favoritos === "🩶"){
             this.setState({
-                Favoritos: "Quitar de favoritos"
+                Favoritos: "♥️"
             })
         }
     }
