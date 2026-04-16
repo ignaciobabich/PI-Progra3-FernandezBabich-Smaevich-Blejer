@@ -12,7 +12,6 @@ import TVShows from './Components/TVShows/TVShows';
 function App() {
   return (
     <div className="App">
-      <Header />
       <Home/>
       <Footer />
     </div>
