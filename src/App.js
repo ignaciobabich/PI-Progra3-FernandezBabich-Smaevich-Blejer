@@ -14,10 +14,6 @@ function App() {
     <div className="App">
       <Header />
       <Home/>
-        <SearchBar />
-        <SectionPelis/>
-        <TVShows/>
-      
       <Footer />
     </div>
   );
