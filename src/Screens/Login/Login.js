@@ -12,8 +12,15 @@ evitarSubmit(event){
     event.preventDefault();
 }
 
-controlarCambios(event){
-    this.setState({valor: event.target.value})
+//validar los campos
+//recuperar el storage
+//buscar si el usuario existe con este email
+//comparar los password
+
+controlarCambios(event, campo){
+    this.setState({
+        [campo]:event.target.value
+        })
 }
 
 render(){
