@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Card from "../Card/Card";
-
+import "./SectionPelis.css"
 
 class SectionPelis extends Component {
     constructor() {
@@ -26,12 +26,10 @@ class SectionPelis extends Component {
 
     render() {
     return (
-      <section className="card-container">
+      <section class="cards">
         <h2 class="alert alert-primary">Popular movies this week</h2>
-        {this.state.peliculas.length === 0 ? (
-          <h3>Cargando...</h3>
-        ) : (
-          this.state.peliculas.map((peli) => 
+        {this.state.peliculas.length === 0 ? (<h3>Cargando...</h3>) : (
+             this.state.peliculas.map((peli) => 
             <Card
               key={peli.id}
               id={peli.id}
