@@ -33,7 +33,7 @@ class Card extends Component {
                     <h5 class="card-title">{this.props.nombre}</h5>
                     <button className='more' onClick={() => this.cambiarEstado()}>{this.state.textoBoton}</button>
                         <section className='extra'>
-                            <a href="Detalle.js" className={this.state.ClaseOculta}>{this.props.descripcion}</a>
+                          <p className="card -text"> {this.props.descripcion} </p> 
                         </section>
                     <a href="" class="btn alert-primary">🩶</a>
                 </div>
