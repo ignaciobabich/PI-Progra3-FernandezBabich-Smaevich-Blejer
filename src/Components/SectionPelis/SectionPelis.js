@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Card from "../Card/Card";
+import "./SectionPelis.css"
 
 class SectionPelis extends Component {
     constructor() {
@@ -15,7 +16,7 @@ class SectionPelis extends Component {
         fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=6ee91af43dc9c7cc853f7185e80bbf53')
             .then(response => response.json())
             .then(data => {this.setState ({
-                    peliculas: data.results
+                    peliculas: data.results.slice(0,4)
                 });
             })
             .catch((error) => console.log(error));
@@ -25,11 +26,10 @@ class SectionPelis extends Component {
 
     render() {
     return (
-      <section className="card-container">
-        {this.state.peliculas.length === 0 ? (
-          <h3>Cargando...</h3>
-        ) : (
-          this.state.peliculas.map((peli) => 
+      <section class="cards">
+        <h2 class="alert alert-primary">Popular movies this week</h2>
+        {this.state.peliculas.length === 0 ? (<h3>Cargando...</h3>) : (
+             this.state.peliculas.map((peli) => 
             <Card
               key={peli.id}
               id={peli.id}
