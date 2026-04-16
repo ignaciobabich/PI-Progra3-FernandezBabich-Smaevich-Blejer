@@ -25,7 +25,7 @@ class Home extends Component{
     }
     render(){
         return(
-            <>
+            <div className='container'>
                { //this.state.datos.length === 0 ? <h3>Cargar...</h3> :
                
                 //this.state.datos.map((elemento, idx) => <li key={idx + elemento.title}>
@@ -37,7 +37,7 @@ class Home extends Component{
                 <SearchBar/>
                 <SectionPelis/>
                 <TVShows/>
-            </>
+            </div>
         )
     }
 }

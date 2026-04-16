@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Card from "../Card/Card";
-import "./SectionPelis.css"
+
 
 class SectionPelis extends Component {
     constructor() {
@@ -26,8 +26,10 @@ class SectionPelis extends Component {
 
     render() {
     return (
-      <section class="cards">
+      <React.Fragment>
+      
         <h2 class="alert alert-primary">Popular movies this week</h2>
+        <section class="row-card" id="movies">
         {this.state.peliculas.length === 0 ? (<h3>Cargando...</h3>) : (
              this.state.peliculas.map((peli) => 
             <Card
@@ -40,7 +42,8 @@ class SectionPelis extends Component {
           )
         )}
       </section>
-    );}
+      </React.Fragment>
+    )}
 
 
 
