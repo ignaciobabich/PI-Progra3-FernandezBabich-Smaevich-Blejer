@@ -26,13 +26,6 @@ class Home extends Component{
     render(){
         return(
             <div className='container'>
-               { //this.state.datos.length === 0 ? <h3>Cargar...</h3> :
-               
-                //this.state.datos.map((elemento, idx) => <li key={idx + elemento.title}>
-                //<Link to ={elemento.path}>{elemento.title}</Link>
-               // </li>)
-                
-               }
                 <Header/>
                 <SearchBar/>
                 <SectionPelis/>
@@ -42,4 +35,5 @@ class Home extends Component{
     }
 }
 
-export default Home
+export default Home;
+
