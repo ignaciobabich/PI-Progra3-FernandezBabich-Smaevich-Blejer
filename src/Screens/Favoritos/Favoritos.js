@@ -10,7 +10,7 @@ class Favoritos extends Component{
         this.state=
             {
                 informacionSeries : [],
-                informacionPeliculas : []
+                informacionPeliculas : [],
             }
     }
 
