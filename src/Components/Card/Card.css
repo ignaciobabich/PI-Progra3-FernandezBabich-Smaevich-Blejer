@@ -85,6 +85,10 @@ nav {
     width: 15%;
 }
 
+.oculta{
+    display: none;
+}
+
 @media(min-width: 765px){
     nav {
         grid-template-columns: 1fr;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Favoritos from '../../Screens/Favoritos/Favoritos';
 
 class Header extends Component {
     constructor(props) {

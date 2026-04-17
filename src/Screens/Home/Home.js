@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 import SectionPelis from '../../Components/SectionPelis/SectionPelis';
 import TVShows from '../../Components/TVShows/TVShows';
 import SearchBar from '../../Components/SearchBar/SearchBar';
 import Header from '../../Components/Header/Header';
+import SectionNowPlaying from '../../Components/SectionNowPlaying/SectionNowPlaying';
 
 
 class Home extends Component{
@@ -30,6 +31,7 @@ class Home extends Component{
                 <SearchBar/>
                 <SectionPelis/>
                 <TVShows/>
+                <SectionNowPlaying/>
             </div>
         )
     }

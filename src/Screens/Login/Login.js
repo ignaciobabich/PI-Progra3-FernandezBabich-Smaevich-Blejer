@@ -13,10 +13,6 @@ evitarSubmit(event){
     event.preventDefault();
 }
 
-//validar los campos
-//recuperar el storage
-//buscar si el usuario existe con este email
-//comparar los password
 
 controlarCambios(event, campo){
     this.setState({

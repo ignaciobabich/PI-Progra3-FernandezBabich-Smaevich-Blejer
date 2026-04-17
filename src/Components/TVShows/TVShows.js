@@ -26,8 +26,10 @@ class TVShows extends Component {
 
     render() {
     return (
-      <section class="cards">
-        <h2 class="alert alert-primary">Popular TVShows this week</h2>
+      <>
+      <h2 className="alert alert-primary">Popular TVShows this week</h2>
+        <section className="cards">
+        
         {this.state.peliculas.length === 0 ? (
           <h3>Cargando...</h3>
         ) : (
@@ -41,7 +43,8 @@ class TVShows extends Component {
             />
           )
         )}
-      </section>
+        </section>
+      </>
     );}
 
 

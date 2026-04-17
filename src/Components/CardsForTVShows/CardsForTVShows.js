@@ -29,8 +29,8 @@ class CardsForTVShows extends Component {
         return(
             <article class="single-card-movie"> 
                 <img src= {'https://image.tmdb.org/t/p/w342/' + this.props.imagen} class="card-img-top" alt="..."/>
-                <div class="cardBody">
-                    <h5 class="card-title">{this.props.nombre}</h5>
+                <div className="cardBody">
+                    <h5 className="card-title">{this.props.nombre}</h5>
                     <button className='more' onClick={() => this.cambiarEstado()}>{this.state.textoBoton}</button>
                         <section className='extra'>
                             <a href="Detalle.js" className={this.state.ClaseOculta}>{this.props.descripcion}</a>

@@ -66,6 +66,7 @@ class Favoritos extends Component{
         return(
             <React.Fragment>
                 <Header/>
+                <Card/>
                 <h2 className="alert alert-primary">Películas favoritas</h2>
                 {this.state.informacionPeliculas.map((data)=> 
                 <section className="row cards" id="movies">
