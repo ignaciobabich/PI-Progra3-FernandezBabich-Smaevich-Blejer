@@ -27,7 +27,7 @@ class TVShows extends Component {
     render() {
     return (
       <>
-      <h2 className="alert alert-primary">Popular TVShows this week</h2>
+      <h2 className="alert alert-primary">Series</h2>
         <section className="cards">
         
         {this.state.peliculas.length === 0 ? (

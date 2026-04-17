@@ -49,7 +49,7 @@ class SectionPelis extends Component {
 
 }
 
-export default SectionPelis
+export default SectionPelis;
 
 
 
