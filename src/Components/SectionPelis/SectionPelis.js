@@ -28,8 +28,8 @@ class SectionPelis extends Component {
     return (
       <React.Fragment>
       
-        <h2 class="alert alert-primary">Popular movies this week</h2>
-        <section class="row-card" id="movies">
+        <h2 className="alert alert-primary">Popular movies this week</h2>
+        <section className="cards" id="movies">
         {this.state.peliculas.length === 0 ? (<h3>Cargando...</h3>) : (
              this.state.peliculas.map((peli) => 
             <Card

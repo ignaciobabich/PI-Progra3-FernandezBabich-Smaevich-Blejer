@@ -4,7 +4,8 @@ class Login extends Component{
     constructor(props){
         super(props);
         this.state = {
-            email:'', contraseña:''
+            email:'', contraseña:'',
+            error: ''
         }
     }
 
@@ -12,10 +13,6 @@ evitarSubmit(event){
     event.preventDefault();
 }
 
-//validar los campos
-//recuperar el storage
-//buscar si el usuario existe con este email
-//comparar los password
 
 controlarCambios(event, campo){
     this.setState({

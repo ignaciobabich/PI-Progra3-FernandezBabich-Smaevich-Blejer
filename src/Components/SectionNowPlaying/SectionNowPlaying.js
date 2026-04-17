@@ -1,8 +1,7 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import Card from "../Card/Card";
 
-
-class TVShows extends Component {
+class SectionNowPlaying extends Component {
     constructor() {
         super();
         this.state = {
@@ -28,8 +27,7 @@ class TVShows extends Component {
     return (
       <>
       <h2 className="alert alert-primary">Popular TVShows this week</h2>
-        <section className="cards">
-        
+      <section className="cards">
         {this.state.peliculas.length === 0 ? (
           <h3>Cargando...</h3>
         ) : (
@@ -43,12 +41,11 @@ class TVShows extends Component {
             />
           )
         )}
-        </section>
+      </section>
       </>
     );}
 
 
 
 }
-
-export default TVShows;
+export default SectionNowPlaying

@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 import SectionPelis from '../../Components/SectionPelis/SectionPelis';
 import TVShows from '../../Components/TVShows/TVShows';
 import SearchBar from '../../Components/SearchBar/SearchBar';
 import Header from '../../Components/Header/Header';
+import SectionNowPlaying from '../../Components/SectionNowPlaying/SectionNowPlaying';
 
 
 class Home extends Component{
@@ -26,20 +27,15 @@ class Home extends Component{
     render(){
         return(
             <div className='container'>
-               { //this.state.datos.length === 0 ? <h3>Cargar...</h3> :
-               
-                //this.state.datos.map((elemento, idx) => <li key={idx + elemento.title}>
-                //<Link to ={elemento.path}>{elemento.title}</Link>
-               // </li>)
-                
-               }
                 <Header/>
                 <SearchBar/>
                 <SectionPelis/>
                 <TVShows/>
+                <SectionNowPlaying/>
             </div>
         )
     }
 }
 
-export default Home
+export default Home;
+

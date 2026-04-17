@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-
+import Favoritos from '../../Screens/Favoritos/Favoritos';
+import { BrowserRouter } from 'react-router-dom/cjs/react-router-dom.min';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 class Header extends Component {
     constructor(props) {
@@ -22,8 +24,6 @@ class Header extends Component {
             })
         }
     }
-
-    //TERMINAR LA SEMANA QUE VIENE QUE VEMOS COMO HACER LO DE LAS COOKIES CON EL FORMS LOGIN.
 
     render() {
         return (
