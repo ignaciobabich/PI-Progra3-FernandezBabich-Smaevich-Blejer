@@ -1,11 +1,24 @@
-import React from 'react';
-import Header from '../../Components/Header/Header';
-import Footer from '../../Components/Footer/Footer';
+import React, {Component} from 'react';
+import { Link } from 'react-router-dom';
 
-function Register() {
+class Register extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            email:'', contraseña:'',
+            error: ''
+        }
+    }
+
+controlarCambios(event, campo){
+    this.setState({
+        [campo]:event.target.value
+        })
+}
+
+render() {
     return (
         <React.Fragment>
-        <Header/>
         <h2 class="alert alert-primary">Registro</h2>
 
         <div class="row justify-content-center">
@@ -21,13 +34,13 @@ function Register() {
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">Registrarse</button>
                 </form>
-                <p class="mt-3 text-center">¿Ya tenés cuenta? <a href="login.html">Iniciar sesión</a></p>
+                <p class="mt-3 text-center">¿Ya tenés cuenta? <Link to="/Login">Inicie sesion</Link></p>
             </div>
         </div>
-    
-        <Footer/>
         </React.Fragment>
     )
+}
+
 }
 
 export default Register;
