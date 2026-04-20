@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import cookies from "universal-cookie"
+import Cookies from "universal-cookie"
 
 const cookies = new Cookies();
 
@@ -21,8 +21,8 @@ controlarCambios(event, campo){
 
 inicioSesion(event){
     event.preventDefault();
-    const usuarioG = JSON.parse(localStorage.getItem("usuarios")) || [];
-    const usuarioV = usuarioG.find(
+    let usuarioG = JSON.parse(localStorage.getItem("usuarios")) || [];
+    let usuarioV = usuarioG.find(
         (usuarios) => usuarios.email === this.state.email && usuarios.contraseña === this.state.contraseña
     );
     if (usuarioV){
@@ -35,7 +35,9 @@ inicioSesion(event){
 
  render(){
      return(
-         <ReactFragment>
+         <>
+         <h2 className="alert alert-primary">Iniciar sesion</h2>
+
              <div className="row justify-content-center">
              <div className="col-md-6">
                  <form onSubmit={(event) => this.inicioSesion(event)}>
@@ -54,7 +56,7 @@ inicioSesion(event){
                  <p class="mt-3 text-center">¿No tenés cuenta? <Link to="/Register" >Registrese</Link></p>
              </div>
          </div>
-         </ReactFragment>
+         </>
      )
 }
 

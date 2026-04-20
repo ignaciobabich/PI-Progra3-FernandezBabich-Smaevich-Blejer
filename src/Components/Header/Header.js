@@ -37,10 +37,10 @@ class Header extends Component {
                         <Link to="/">Home</Link>
                     </li>
                     <li className="nav-link">
-                        <Link to="/peliculas">Peliculas</Link>
+                        <Link to="/sectionpelis">Peliculas</Link>
                     </li>
                     <li className="nav-link">
-                        <Link to="/series">Series</Link>
+                        <Link to="/tvshows">Series</Link>
                     </li>
                     <li className="nav-link">
                         <Link to="/favoritos">Favoritos</Link>

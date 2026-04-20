@@ -5,6 +5,10 @@ import Home from './Screens/Home/Home';
 import Detalle from './Screens/Detalle/Detalle'
 import Header from './Components/Header/Header';
 import NotFound from './Screens/NotFound/NotFound';
+import Login from './Screens/Login/Login';
+import Register from './Screens/Register/Register';
+import SectionPelis from './Components/SectionPelis/SectionPelis';
+import TVShows from './Components/TVShows/TVShows';
 
 
 
@@ -13,7 +17,11 @@ function App() {
     <>
       <Header/>
         <Switch>
+          <Route exact path="/register" component={Register}/>
+          <Route exact path="/login" component={Login}/>
           <Route exact path="/" component={Home}/>
+          <Route exact path="/sectionpelis" component={SectionPelis}/>
+          <Route exact path="/tvshows" component={TVShows}/>
           <Route exact path="/detalle" component={Detalle}/>
           <Route component={NotFound}/>
         </Switch>
