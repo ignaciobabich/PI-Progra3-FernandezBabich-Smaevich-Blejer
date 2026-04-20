@@ -37,6 +37,7 @@ class TVShows extends Component {
             <Card
               key={peli.id}
               id={peli.id}
+              tipo="tv"
               nombre={peli.name}
               imagen={peli.poster_path}
               descripcion={peli.overview}

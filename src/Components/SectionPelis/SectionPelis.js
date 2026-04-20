@@ -35,6 +35,7 @@ class SectionPelis extends Component {
             <Card
               key={peli.id}
               id={peli.id}
+              tipo="movie"
               nombre={peli.title}
               imagen={peli.poster_path}
               descripcion={peli.overview}
