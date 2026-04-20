@@ -47,11 +47,16 @@ class Card extends Component {
                 <img src= {'https://image.tmdb.org/t/p/w342/' + this.props.imagen} class="card-img-top" alt="..."/>
                 <div className="cardBody">
                     <h5 className="card-title">{this.props.nombre}</h5>
-                    <p className="card-text"> {this.props.descripcion} </p> 
-                    <button className='more' onClick={() => this.cambiarEstado()}> <Link to= "/Detalle" > {this.state.textoBoton} </Link></button>
+                    <button className='more' > <Link to= "/Detalle" > Ver detalle </Link></button>
                         <section className={`extra ${this.state.ClaseOculta}`}>
                           
                         </section>
+
+                    <button className='more' onClick={() => this.cambiarEstado()}>{this.state.textoBoton}</button>
+                        <section className='extra'>
+                            <a href="Detalle.js" className={this.state.ClaseOculta}>{this.props.descripcion}</a>
+                        </section>
+                        
                     <button onClick={() => this.cambiarEstadoFav()}> {this.state.Favoritos} </button>
                 </div>
                 </article>

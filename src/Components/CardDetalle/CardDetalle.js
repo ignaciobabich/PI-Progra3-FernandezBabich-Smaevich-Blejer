@@ -42,7 +42,7 @@ class CardDetalle extends Component {
 
     render(){
         return(
-            <div>
+            <div className="container">
                 <h2 class="alert alert-primary">{this.props.nombre}</h2>
 
             <section class= "row">
