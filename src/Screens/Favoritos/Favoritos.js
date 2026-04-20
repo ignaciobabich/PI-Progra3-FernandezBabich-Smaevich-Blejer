@@ -7,59 +7,47 @@ import { Link } from "react-router-dom";
 class Favoritos extends Component{
     constructor(props){
         super(props)
-        this.state=
-            {
-                informacionSeries : [],
-                informacionPeliculas : [],
-            }
+        this.state = {
+            peliculasFavoritas: [],
+            seriesFavoritas: []
+        }
     }
 
-
     componentDidMount(){
-        let id1 = localStorage.getItem("favoritos-peliculas")
-        let idpelicula;
+        this.cargarPeliculasFavoritas();
+        this.cargarSeriesFavoritas();
+    }
 
-         if (id1 !== null) {
-            idpelicula = JSON.parse(id1);
-        } else {
-            idpelicula = [];
-        }
-        idpelicula.map((id) =>
-        fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=6ee91af43dc9c7cc853f7185e80bbf53`)
-            .then(res => res.json())
-            .then(data => {
-                let peliculas = this.state.informacionPeliculas;
-                peliculas.push(data);
+    cargarPeliculasFavoritas(){
+        const storagePeliculas = localStorage.getItem("favoritos-peliculas");
+        const peliculasGuardadas = storagePeliculas ? JSON.parse(storagePeliculas) : [];
 
-                this.setState({
-                    informacionPeliculas: peliculas
-                });
-            })
-            .catch(err => console.error(err))
-    )
-        
-        let id2 = localStorage.getItem("favoritos-series")
-        let idserie;
+        peliculasGuardadas.map((id) => {
+            fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=6ee91af43dc9c7cc853f7185e80bbf53`)
+                .then((response) => response.json())
+                .then((info) => {
+                    this.setState({
+                        peliculasFavoritas: [...this.state.peliculasFavoritas, info]
+                    })
+                })
+                .catch((error) => console.log(error))
+        });
+    }
 
-        if (id2 !== null) {
-            idserie = JSON.parse(id2);
-        } else {
-            idserie = [];
-        }
-        idserie.map((id)=> 
-        fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=6ee91af43dc9c7cc853f7185e80bbf53`)
-            .then(res => res.json())
-            .then(data => {
-                let series = this.state.informacionSeries;
-                series.push(data);
+    cargarSeriesFavoritas(){
+        const storageSeries = localStorage.getItem("favoritos-series");
+        const seriesGuardadas = storageSeries ? JSON.parse(storageSeries) : [];
 
-                this.setState({
-                    informacionSeries: series
-                });
-            })
-            .catch(err => console.error(err))
-    )
-    
+        seriesGuardadas.map((id) => {
+            fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=6ee91af43dc9c7cc853f7185e80bbf53`)
+                .then((response) => response.json())
+                .then((info) => {
+                    this.setState({
+                        seriesFavoritas: [...this.state.seriesFavoritas, info]
+                    })
+                })
+                .catch((error) => console.log(error))
+        });
     }
 
     render(){
@@ -67,42 +55,48 @@ class Favoritos extends Component{
             <React.Fragment>
                 <Header/>
                 <Card/>
-                <h2 className="alert alert-primary">Películas favoritas</h2>
-                {this.state.informacionPeliculas.map((data)=> 
-                <section className="row cards" id="movies">
-                    <article className="single-card-movie">
-                    <img src={`https://image.tmdb.org/t/p/w500/${data.poster_path}`} className="card-img-top" alt={`${data.name}`}/>
-                    <div className="cardBody">
-                    <h5 className="card-title">{`${data.title}`}</h5>
-                    <p className="card-text">{`${data.overview}`}</p>
-                    <Link to = {`/pelicula/${data.id}`}>Ir a detalle</Link>
-                </div>
-                    </article>
-                </section>
-                )}
-                <h2 className="alert alert-warning">Series favoritas</h2>
-                {this.state.informacionSeries.map((data)=>
-                <section className="row cards" id="tv-show">
-                <article className="single-card-tv">
-                <img src={`https://image.tmdb.org/t/p/w500/${data.poster_path}`} className="card-img-top" alt={`${data.name}`}/>
-                <div className="cardBody">
-                    <h5 className="card-title">{`${data.name}`}</h5>
-                    <p className="card-text">{`${data.overview}`}</p>
-                    <Link to = {`/serie/${data.id}`}>Ir a detalle</Link>
-                    <a href="" className="btn alert-warning">♥️</a>
-                </div>
-                </article>
-                </section>
-                )}
 
-                
+                <h2 className="alert alert-primary">Películas favoritas</h2>
+                {this.state.peliculasFavoritas.map((pelicula) => (
+                    <section className="row cards" id="movies" key={pelicula.id}>
+                        <article className="single-card-movie">
+                            <img
+                                src={`https://image.tmdb.org/t/p/w500/${pelicula.poster_path}`}
+                                className="card-img-top"
+                                alt={pelicula.title}
+                            />
+                            <div className="cardBody">
+                                <h5 className="card-title">{pelicula.title}</h5>
+                                <p className="card-text">{pelicula.overview}</p>
+                                <Link to={`/pelicula/${pelicula.id}`}>Ir a detalle</Link>
+                            </div>
+                        </article>
+                    </section>
+                ))}
+
+                <h2 className="alert alert-warning">Series favoritas</h2>
+                {this.state.seriesFavoritas.map((serie) => (
+                    <section className="row cards" id="tv-show" key={serie.id}>
+                        <article className="single-card-tv">
+                            <img
+                                src={`https://image.tmdb.org/t/p/w500/${serie.poster_path}`}
+                                className="card-img-top"
+                                alt={serie.name}
+                            />
+                            <div className="cardBody">
+                                <h5 className="card-title">{serie.name}</h5>
+                                <p className="card-text">{serie.overview}</p>
+                                <Link to={`/serie/${serie.id}`}>Ir a detalle</Link>
+                                <a href="" className="btn alert-warning">♥️</a>
+                            </div>
+                        </article>
+                    </section>
+                ))}
+
                 <Footer/>
             </React.Fragment>
         )
     }
-    
-    
-
-    
 }
+
 export default Favoritos
