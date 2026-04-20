@@ -17,12 +17,12 @@ function App() {
     <>
       <Header/>
         <Switch>
-          <Route exact path="/register" component={Register}/>
-          <Route exact path="/login" component={Login}/>
+          <Route  path="/register" component={Register}/>
+          <Route  path="/login" component={Login}/>
           <Route exact path="/" component={Home}/>
-          <Route exact path="/sectionpelis" component={SectionPelis}/>
-          <Route exact path="/tvshows" component={TVShows}/>
-          <Route exact path="/detalle" component={Detalle}/>
+          <Route  path="/sectionpelis" component={SectionPelis}/>
+          <Route  path="/tvshows" component={TVShows}/>
+          <Route  path="/detalle" component={Detalle}/>
           <Route component={NotFound}/>
         </Switch>
       <Footer/>
