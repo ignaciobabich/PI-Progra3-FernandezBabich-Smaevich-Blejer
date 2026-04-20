@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import Favoritos from '../../Screens/Favoritos/Favoritos';
 import { BrowserRouter } from 'react-router-dom/cjs/react-router-dom.min';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 class Header extends Component {
     constructor(props) {
