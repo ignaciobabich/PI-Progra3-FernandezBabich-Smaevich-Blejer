@@ -10,31 +10,63 @@ class Register extends Component{
         }
     }
 
-controlarCambios(event, campo){
-    this.setState({
-        [campo]:event.target.value
+    controlarCambios(event, campo){
+        this.setState({
+            [campo]:event.target.value
         })
-}
+    }
 
-render() {
+    registUsuario(event){
+        event.preventDefault();
+    
+    if (this.state.contraseña.length < 6){
+        this.setState({mensaje: "la clave tiene que contener al menos 6 caracteres"})
+        return;
+    }
+       
+    let usuarioG = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+    let existe = usuarioG.find(
+        (usuarios) => usuarios.email === this.state.email
+    );
+
+    if (existe){
+        this.setState({mensaje: "Este email ya existe"})
+        return;
+    }
+
+    let usuarioNuevo = {
+        email : this.state.email,
+        contraseña : this.state.contraseña
+    };
+
+    usuarioG.push(usuarioNuevo);
+    localStorage.setItem("usuarios", JSON.stringify(usuarioG));
+
+    this.props.history.push("/Login");
+}   
+
+    render() {
     return (
         <React.Fragment>
-        <h2 class="alert alert-primary">Registro</h2>
+        <h2 className="alert alert-primary">Registro</h2>
 
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <form>
-                    <div class="form-group">
+        <div className="row justify-content-center">
+            <div className="col-md-6">
+                <form onSubmit={(event) => this.registUsuario(event)}>
+                    <div className="form-group">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="Ingresá tu email"/>
+                        <input type="email" class="form-control" id="email" placeholder="Ingresá tu email" value={this.state.email}
+                        onChange={(event) =>this.controlarCambios(event, "email")}/>
                     </div>
                     <div class="form-group">
                         <label for="password">Contraseña</label>
-                        <input type="password" class="form-control" id="password" placeholder="Ingresá tu contraseña"/>
+                        <input type="password" class="form-control" id="password" placeholder="Ingrese minimo 6 caracteres" value={this.state.contraseña}
+                        onChange={(event) => this.controlarCambios(event, contraseña)}/>
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">Registrarse</button>
                 </form>
-                <p class="mt-3 text-center">¿Ya tenés cuenta? <Link to="/Login">Inicie sesion</Link></p>
+                <p class="mt-3 text-center">¿Ya tenés cuenta? <Link to="/Login">Iniciar sesion</Link></p>
             </div>
         </div>
         </React.Fragment>
