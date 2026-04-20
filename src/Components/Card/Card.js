@@ -15,7 +15,7 @@ class Card extends Component {
         };
     }
 
-    cambiarEstado() {
+        cambiarEstado() {
         if(this.state.textoBoton === "Ver Mas"){
             this.setState({
                 textoBoton: "Ver Menos",
@@ -40,6 +40,13 @@ class Card extends Component {
             }
         }
 
+     agregarAFavoritos(id){
+        let favoritos = localStorage.getItem("favoritos-peliculas");
+        let favoritosagregados = favoritos ? JSON.parse(favoritos) : [];
+
+        favoritosagregados.push(id);
+        localStorage.setItem("favoritos-peliculas", JSON.stringify(favoritosagregados));
+     }
 
     render(){
         return(
@@ -52,11 +59,13 @@ class Card extends Component {
                         <section className={`extra ${this.state.ClaseOculta}`}>
                           
                         </section>
-                    <button onClick={() => this.cambiarEstadoFav()}> {this.state.Favoritos} </button>
+                    <button onClick={() => this.cambiarEstadoFav()}> {() => this.state.Favoritos()} {() => this.agregarAFavoritos(this.props.id)}</button>
                 </div>
                 </article>
         )
     }
 }
+
+
 
 export default Card;

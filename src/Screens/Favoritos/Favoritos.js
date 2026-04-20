@@ -27,7 +27,7 @@ class Favoritos extends Component{
                 .then((response) => response.json())
                 .then((info) => {
                     this.setState({
-                        peliculasFavoritas: [...this.state.peliculasFavoritas, info]
+                        peliculasFavoritas: this.state.peliculasFavoritas.concat(info)
                     })
                 })
                 .catch((error) => console.log(error))
@@ -43,7 +43,7 @@ class Favoritos extends Component{
                 .then((response) => response.json())
                 .then((info) => {
                     this.setState({
-                        seriesFavoritas: [...this.state.seriesFavoritas, info]
+                        seriesFavoritas: this.state.seriesFavoritas.concat(info)
                     })
                 })
                 .catch((error) => console.log(error))
@@ -51,48 +51,16 @@ class Favoritos extends Component{
     }
 
     render(){
+        console.log (this.state.peliculasFavoritas);
         return(
             <React.Fragment>
                 <Header/>
-                <Card/>
-
-                <h2 className="alert alert-primary">Películas favoritas</h2>
-                {this.state.peliculasFavoritas.map((pelicula) => (
-                    <section className="row cards" id="movies" key={pelicula.id}>
-                        <article className="single-card-movie">
-                            <img
-                                src={`https://image.tmdb.org/t/p/w500/${pelicula.poster_path}`}
-                                className="card-img-top"
-                                alt={pelicula.title}
-                            />
-                            <div className="cardBody">
-                                <h5 className="card-title">{pelicula.title}</h5>
-                                <p className="card-text">{pelicula.overview}</p>
-                                <Link to={`/pelicula/${pelicula.id}`}>Ir a detalle</Link>
-                            </div>
-                        </article>
-                    </section>
-                ))}
-
-                <h2 className="alert alert-warning">Series favoritas</h2>
-                {this.state.seriesFavoritas.map((serie) => (
-                    <section className="row cards" id="tv-show" key={serie.id}>
-                        <article className="single-card-tv">
-                            <img
-                                src={`https://image.tmdb.org/t/p/w500/${serie.poster_path}`}
-                                className="card-img-top"
-                                alt={serie.name}
-                            />
-                            <div className="cardBody">
-                                <h5 className="card-title">{serie.name}</h5>
-                                <p className="card-text">{serie.overview}</p>
-                                <Link to={`/serie/${serie.id}`}>Ir a detalle</Link>
-                                <a href="" className="btn alert-warning">♥️</a>
-                            </div>
-                        </article>
-                    </section>
-                ))}
-
+            <section>
+            <Card/>
+            </section>
+            <section>
+            <Card/>
+            </section>
                 <Footer/>
             </React.Fragment>
         )
