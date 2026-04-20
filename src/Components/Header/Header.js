@@ -30,6 +30,7 @@ class Header extends Component {
     render() {
         return (
             <React.Fragment>
+            <div className="container">
             <h1>UdeSA Movies</h1>
             <nav>
                 <ul className="nav nav-tabs my-4">
@@ -53,6 +54,7 @@ class Header extends Component {
                     </li>
                 </ul>
             </nav>
+            </div>
             </React.Fragment>
 
         )
