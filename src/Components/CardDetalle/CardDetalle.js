@@ -1,11 +1,10 @@
 import React, { Component } from "react";  
 //import { Link } from "react-router-dom/cjs/react-router-dom.min";
-import "./Card.css";
 import {Link} from 'react-router-dom';
 import Detalle from '../../Screens/Detalle/Detalle';
 
 
-class Card extends Component {
+class CardDetalle extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -43,20 +42,22 @@ class Card extends Component {
 
     render(){
         return(
-            <article class="single-card-movie">
-                <img src= {'https://image.tmdb.org/t/p/w342/' + this.props.imagen} class="card-img-top" alt="..."/>
-                <div className="cardBody">
-                    <h5 className="card-title">{this.props.nombre}</h5>
-                    <p className="card-text"> {this.props.descripcion} </p> 
-                    <button className='more' onClick={() => this.cambiarEstado()}> <Link to= "/Detalle" > {this.state.textoBoton} </Link></button>
-                        <section className={`extra ${this.state.ClaseOculta}`}>
-                          
-                        </section>
-                    <button onClick={() => this.cambiarEstadoFav()}> {this.state.Favoritos} </button>
-                </div>
-                </article>
+            <div>
+                <h2 class="alert alert-primary">{this.props.nombre}</h2>
+
+            <section class= "row">
+                <img class="col-md-6" src= {'https://image.tmdb.org/t/p/w342/' + this.props.imagen}  alt/>
+                <section class="col-md-6 info">
+                    <h3>Descripcion</h3>
+                    <p class="description"> {this.props.descripcion} </p> 
+                    <p clas="mt-0 mb-0" id="release-date"> <strong>Fechas de estreno:</strong> {this.props.date} </p>
+                    <p clas="mt-0 mb-0 length"> <strong>puntuacion:</strong> {this.props.puntuacion} </p>
+
+                </section>
+            </section>
+            </div>
         )
     }
 }
 
-export default Card;
+export default CardDetalle;
