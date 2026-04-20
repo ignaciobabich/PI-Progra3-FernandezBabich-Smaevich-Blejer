@@ -6,7 +6,7 @@ function NotFound(){
     return(
        <div className= "cards cardBody">
         <h1>404 - contenido inexistente</h1>
-        <Link to="/"> Volver al inicio </Link>
+        <Link to="/"></Link>
        </div> 
     )
 }

@@ -62,7 +62,7 @@ class Register extends Component{
                     <div class="form-group">
                         <label for="password">Contraseña</label>
                         <input type="password" class="form-control" id="password" placeholder="Ingrese minimo 6 caracteres" value={this.state.contraseña}
-                        onChange={(event) => this.controlarCambios(event, contraseña)}/>
+                        onChange={(event) => this.controlarCambios(event, "contraseña")}/>
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">Registrarse</button>
                 </form>
