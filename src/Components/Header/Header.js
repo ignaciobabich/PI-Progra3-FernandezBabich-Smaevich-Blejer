@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Favoritos from '../../Screens/Favoritos/Favoritos';
-import { BrowserRouter } from 'react-router-dom/cjs/react-router-dom.min';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import Cookies from 'universal-cookie';
 
@@ -34,23 +33,23 @@ class Header extends Component {
             <h1>UdeSA Movies</h1>
             <nav>
                 <ul className="nav nav-tabs my-4">
-                    <li className="nav-item">
-                        <a className="nav-link" href="index.html">Home</a>
+                    <li className="nav-link">
+                        <Link to="/">Home</Link>
                     </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="movies.html">Películas</a>
+                    <li className="nav-link">
+                        <Link to="/peliculas">Peliculas</Link>
                     </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="series.html">Series</a>
+                    <li className="nav-link">
+                        <Link to="/series">Series</Link>
                     </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="favorites.html">Favoritas</a>
+                    <li className="nav-link">
+                        <Link to="/favoritos">Favoritos</Link>
                     </li>
                     <li className="nav-item ml-auto">
-                        <a className="nav-link" href="register.html">Registro</a>
+                        <Link to="/register">Register</Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="login.html">Login</a>
+                        <Link to="/login">Login</Link>
                     </li>
                 </ul>
             </nav>

@@ -1,34 +1,26 @@
 import React from 'react';
-//import Header from './Components/Header/Header';
+import { Switch, Route } from 'react-router-dom';
 import Footer from './Components/Footer/Footer';
-//import SearchBar from './Components/SearchBar/SearchBar';
-//import CardsForTVShows from './Components/CardsForTVShows/CardsForTVShows';
 import Home from './Screens/Home/Home';
-//import SectionPelis from './Components/SectionPelis/SectionPelis'
-//import TVShows from './Components/TVShows/TVShows';
-//import NotFound from './Screens/NotFound/NotFound';
 import Detalle from './Screens/Detalle/Detalle'
-import { Link, Route } from 'react-router-dom';
+import Header from './Components/Header/Header';
+import NotFound from './Screens/NotFound/NotFound';
 
 
 
 function App() {
   return (
-    <div className="App">
-      <Route exact path="/">
-      <Home/>
-      </Route>
-
-      <Route exact path="/Detalle">
-       <Detalle/>
-      </Route>
-
-
-      <Footer />
-    </div>
+    <>
+      <Header/>
+        <Switch>
+          <Route exact path="/" component={Home}/>
+          <Route exact path="/detalle" component={Detalle}/>
+          <Route component={NotFound}/>
+        </Switch>
+      <Footer/>
+    </>
   );
 }
 
 export default App;
 
-// falta poner el switch con todas las rutas y linkear todo
