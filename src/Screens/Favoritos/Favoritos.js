@@ -54,14 +54,12 @@ class Favoritos extends Component{
         console.log (this.state.peliculasFavoritas);
         return(
             <React.Fragment>
-                <Header/>
             <section>
             <Card/>
             </section>
             <section>
             <Card/>
             </section>
-                <Footer/>
             </React.Fragment>
         )
     }

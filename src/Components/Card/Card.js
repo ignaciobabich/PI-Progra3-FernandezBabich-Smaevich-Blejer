@@ -54,7 +54,7 @@ class Card extends Component {
                 <img src= {'https://image.tmdb.org/t/p/w342/' + this.props.imagen} class="card-img-top" alt="..."/>
                 <div className="cardBody">
                     <h5 className="card-title">{this.props.nombre}</h5>
-                    <button className='more' > <Link to= "/detalle" > Ver detalle </Link></button>
+                    <button className='more' >  <Link to= {"/detalle/"+ this.props.id} > Ver detalle </Link></button>
                         <section className={`extra ${this.state.ClaseOculta}`}>
                           
                         </section>

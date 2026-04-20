@@ -9,6 +9,7 @@ import Login from './Screens/Login/Login';
 import Register from './Screens/Register/Register';
 import SectionPelis from './Components/SectionPelis/SectionPelis';
 import TVShows from './Components/TVShows/TVShows';
+import Favoritos from './Screens/Favoritos/Favoritos';
 
 
 
@@ -22,7 +23,8 @@ function App() {
           <Route exact path="/" component={Home}/>
           <Route  path="/sectionpelis" component={SectionPelis}/>
           <Route  path="/tvshows" component={TVShows}/>
-          <Route  path="/detalle/:tipo/:id" component={Detalle}/>
+          <Route path="/favoritos" component={Favoritos}/>
+          <Route  path="/detalle/:id" component={Detalle}/>
           <Route component={NotFound}/>
         </Switch>
       <Footer/>
