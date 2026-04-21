@@ -11,9 +11,7 @@ class LogOut extends Component {
 
     render() {
         return (
-            <div className="container">
-                <p>Cerrando sesión...</p>
-            </div>
+            null
         )
     }
 }

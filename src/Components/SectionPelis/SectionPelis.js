@@ -25,7 +25,7 @@ class SectionPelis extends Component {
     render() {
         return (
             <React.Fragment>
-                <div className="d-flex justify-content-between align-items-center">
+                <div className="">
                     <h2 className="alert alert-primary mb-0">Peliculas en cartel</h2>
                     <Link to="/sectionpelis" className="btn btn-outline-primary btn-sm">Ver todas</Link>
                 </div>
