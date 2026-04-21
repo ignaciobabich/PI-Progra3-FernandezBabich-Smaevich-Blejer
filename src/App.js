@@ -10,6 +10,7 @@ import Register from './Screens/Register/Register';
 import SectionPelis from './Components/SectionPelis/SectionPelis';
 import TVShows from './Components/TVShows/TVShows';
 import Favoritos from './Screens/Favoritos/Favoritos';
+import LogOut from './Screens/LogOut/LogOut';
 
 
 
@@ -20,10 +21,11 @@ function App() {
         <Switch>
           <Route  path="/register" component={Register}/>
           <Route  path="/login" component={Login}/>
-          <Route exact path="/" component={Home}/>
+          <Route  path="/logout" component={LogOut}/>
+          <Route  exact path="/" component={Home}/>
           <Route  path="/sectionpelis" component={SectionPelis}/>
           <Route  path="/tvshows" component={TVShows}/>
-          <Route path="/favoritos" component={Favoritos}/>
+          <Route  path="/favoritos" component={Favoritos}/>
           <Route  path="/detalle/:id" component={Detalle}/>
           <Route component={NotFound}/>
         </Switch>

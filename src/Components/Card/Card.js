@@ -1,5 +1,4 @@
 import React, { Component } from "react";  
-//import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import "./Card.css";
 import {Link} from 'react-router-dom';
 import Detalle from '../../Screens/Detalle/Detalle';

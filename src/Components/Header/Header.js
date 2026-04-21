@@ -5,29 +5,8 @@ import Cookies from 'universal-cookie';
 
 const cookies = new Cookies();
 
-class Header extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            sesion: false
-
-        };
-    }
-
-    cambiarEstado() {
-        if(this.state.sesion === false) {
-            this.setState({
-                sesion: true
-            })
-        }
-        else{
-            this.setState({
-                sesion: false
-            })
-        }
-    }
-
-    render() {
+function Header(props){
+    let usuario= cookies.get("sesion")
         return (
             <React.Fragment>
             <div className="container">
@@ -43,15 +22,25 @@ class Header extends Component {
                     <li className="nav-link">
                         <Link to="/tvshows">Series</Link>
                     </li>
-                    <li className="nav-link">
+                    {usuario ? (
+                        <>
+                        <li className="nav-link">
                         <Link to="/favoritos">Favoritos</Link>
-                    </li>
-                    <li className="nav-item ml-auto">
+                        </li>
+                        <li className="nav-link">
+                        <Link to="/logout">LogOut</Link>
+                        </li>
+                        </>
+                    ) : (
+                        <>
+                        <li className="nav-item ml-auto">
                         <Link to="/register">Register</Link>
-                    </li>
-                    <li className="nav-item">
+                        </li>
+                        <li className="nav-item">
                         <Link to="/login">Login</Link>
-                    </li>
+                        </li>
+                        </>
+                    )}
                 </ul>
             </nav>
             </div>
@@ -59,6 +48,7 @@ class Header extends Component {
 
         )
     }
-}
+
+
 
 export default Header;

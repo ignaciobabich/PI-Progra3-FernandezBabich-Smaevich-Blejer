@@ -43,7 +43,7 @@ class Register extends Component{
     usuarioG.push(usuarioNuevo);
     localStorage.setItem("usuarios", JSON.stringify(usuarioG));
 
-    this.props.history.push("/Login");
+    this.props.history.push("/login");
 }   
 
     render() {
@@ -55,18 +55,18 @@ class Register extends Component{
             <div className="col-md-6">
                 <form onSubmit={(event) => this.registUsuario(event)}>
                     <div className="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="Ingresá tu email" value={this.state.email}
+                        <label htmlFor="email">Email</label>
+                        <input type="email" className="form-control" id="email" placeholder="Ingresá tu email" value={this.state.email}
                         onChange={(event) =>this.controlarCambios(event, "email")}/>
                     </div>
-                    <div class="form-group">
-                        <label for="password">Contraseña</label>
-                        <input type="password" class="form-control" id="password" placeholder="Ingrese minimo 6 caracteres" value={this.state.contraseña}
+                    <div className="form-group">
+                        <label htmlFor="password">Contraseña</label>
+                        <input type="password" className="form-control" id="password" placeholder="Ingrese minimo 6 caracteres" value={this.state.contraseña}
                         onChange={(event) => this.controlarCambios(event, "contraseña")}/>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">Registrarse</button>
+                    <button type="submit" className="btn btn-primary btn-block">Registrarse</button>
                 </form>
-                <p class="mt-3 text-center">¿Ya tenés cuenta? <Link to="/Login">Iniciar sesion</Link></p>
+                <p class="mt-3 text-center">¿Ya tenés cuenta? <Link to="/login">Iniciar sesion</Link></p>
             </div>
         </div>
         </React.Fragment>

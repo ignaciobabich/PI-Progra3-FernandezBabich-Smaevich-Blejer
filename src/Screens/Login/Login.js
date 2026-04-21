@@ -42,18 +42,18 @@ inicioSesion(event){
              <div className="col-md-6">
                  <form onSubmit={(event) => this.inicioSesion(event)}>
                      <div className="form-group">
-                         <label for="email">Email</label>
-                         <input type="email" class="form-control" id="email" placeholder="Ingresá tu email" value={this.state.email}
+                         <label htmlFor="email">Email</label>
+                         <input type="email" className="form-control" id="email" placeholder="Ingresá tu email" value={this.state.email}
                          onChange={(event) => this.controlarCambios(event, "email")}/>
                      </div>
-                     <div class="form-group">
-                         <label for="password">Contraseña</label>
-                         <input type="password" class="form-control" id="password" placeholder="Ingresá tu contraseña" value={this.state.contraseña}
+                     <div className="form-group">
+                         <label htmlFor="password">Contraseña</label>
+                         <input type="password" className="form-control" id="password" placeholder="Ingresá tu contraseña" value={this.state.contraseña}
                          onChange={(event) =>this.controlarCambios(event, "contraseña")}/>
                      </div>
-                     <button type="submit" class="btn btn-primary btn-block">Iniciar sesión</button>
+                     <button type="submit" className="btn btn-primary btn-block">Iniciar sesión</button>
                  </form>
-                 <p class="mt-3 text-center">¿No tenés cuenta? <Link to="/Register" >Registrese</Link></p>
+                 <p className="mt-3 text-center">¿No tenés cuenta? <Link to="/register" >Registrese</Link></p>
              </div>
          </div>
          </>
