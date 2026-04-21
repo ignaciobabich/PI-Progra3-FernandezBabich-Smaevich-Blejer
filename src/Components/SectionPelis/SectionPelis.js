@@ -25,14 +25,14 @@ class SectionPelis extends Component {
     render() {
         return (
             <React.Fragment>
-                <div className="">
-                    <h2 className="alert alert-primary mb-0">Peliculas en cartel</h2>
-                    <Link to="/sectionpelis" className="btn btn-outline-primary btn-sm">Ver todas</Link>
+                <div className="alert alert-primary">
+                    <h2 className="alert alert-primary">Peliculas en cartel</h2>
+                    <Link to="/sectionpelis" >Ver todas</Link>
                 </div>
-                <section className="cards" id="movies">
+                <section className="row cards" id="movies">
                     {this.state.peliculas.length === 0 ? (<Loader />) : (
                         this.state.peliculas.map((peli) =>
-                            <Card
+                            <Card className="single-card-movie"
                                 key={peli.id}
                                 id={peli.id}
                                 tipo="movie"

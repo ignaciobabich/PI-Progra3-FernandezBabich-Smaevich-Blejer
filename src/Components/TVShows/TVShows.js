@@ -25,16 +25,16 @@ class TVShows extends Component {
     render() {
         return (
             <>
-                <div className="d-flex justify-content-between align-items-center">
-                    <h2 className="alert alert-primary mb-0">Series populares</h2>
-                    <Link to="/tvshows" className="btn btn-outline-primary btn-sm">Ver todas</Link>
+                <div className="alert alert-primary">
+                    <h2 className="alert alert-primary">Series populares</h2>
+                    <Link to="/tvshows" >Ver todas</Link>
                 </div>
-                <section className="cards">
+                <section className="row cards" id="movies">
                     {this.state.peliculas.length === 0 ? (
                         <Loader />
                     ) : (
                         this.state.peliculas.map((peli) =>
-                            <Card
+                            <Card className="single-card-movie"
                                 key={peli.id}
                                 id={peli.id}
                                 tipo="tv"

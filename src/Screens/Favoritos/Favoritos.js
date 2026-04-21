@@ -90,14 +90,14 @@ class Favoritos extends Component {
 
                     {this.state.cargando ? (<Loader />) : (
                         <React.Fragment>
-                            <h3>Películas favoritas</h3>
-                            <section className="cards">
+                            <h2 className="alert alert-primary">Películas favoritas</h2>
+                            <section className="row cards" id="movies">
                                 {this.state.peliculasFavoritas.length === 0 ? (
                                     <p>No tenés películas favoritas guardadas.</p>
                                 ) : (
                                     this.state.peliculasFavoritas.map((peli) =>
                                         <div key={peli.id}>
-                                            <Card
+                                            <Card className="single-card-movie"
                                                 id={peli.id}
                                                 tipo="movie"
                                                 nombre={peli.title}
@@ -105,7 +105,7 @@ class Favoritos extends Component {
                                                 descripcion={peli.overview}
                                             />
                                             <button
-                                                class="btn btn-danger btn-sm"
+                                                class=""
                                                 onClick={() => this.eliminarFavorito(peli.id, 'movie')}
                                             >
                                                 Eliminar
@@ -115,14 +115,14 @@ class Favoritos extends Component {
                                 )}
                             </section>
 
-                            <h3>Series favoritas</h3>
-                            <section className="cards">
+                            <h2 className="alert alert-primary">Series favoritas</h2>
+                            <section className="row cards" id="movies">
                                 {this.state.seriesFavoritas.length === 0 ? (
                                     <p>No tenés series favoritas guardadas.</p>
                                 ) : (
                                     this.state.seriesFavoritas.map((serie) =>
                                         <div key={serie.id}>
-                                            <Card
+                                            <Card className="single-card-movie"
                                                 id={serie.id}
                                                 tipo="tv"
                                                 nombre={serie.name}
@@ -130,7 +130,7 @@ class Favoritos extends Component {
                                                 descripcion={serie.overview}
                                             />
                                             <button
-                                                class="btn btn-danger btn-sm"
+                                                class=""
                                                 onClick={() => this.eliminarFavorito(serie.id, 'tv')}
                                             >
                                                 Eliminar

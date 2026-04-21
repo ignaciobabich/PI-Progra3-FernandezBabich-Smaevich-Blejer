@@ -25,33 +25,33 @@ class Header extends Component {
             <h1>UdeSA Movies</h1>
             <nav>
                 <ul className="nav nav-tabs my-4">
-                    <li className="nav-link">
-                        <Link to="/">Home</Link>
+                    <li className="nav-item">
+                        <Link  className="nav-link" to="/">Home</Link>
                     </li>
-                    <li className="nav-link">
-                        <Link to="/sectionpelis">Peliculas</Link>
+                    <li className="nav-item">
+                        <Link  className="nav-link" to="/sectionpelis">Peliculas</Link>
                     </li>
-                    <li className="nav-link">
-                        <Link to="/tvshows">Series</Link>
+                    <li className="nav-item">
+                        <Link  className="nav-link" to="/tvshows">Series</Link>
                     </li>
                     {this.state.sesion === false &&
                         <li className="nav-item ml-auto">
-                            <Link to="/register">Crear Cuenta</Link>
+                            <Link className="nav-link" to="/register">Crear Cuenta</Link>
                         </li>
                     }
                     {this.state.sesion === false &&
                         <li className="nav-item">
-                            <Link to="/login">Login</Link>
+                            <Link className="nav-link" to="/login">Login</Link>
                         </li>
                     }
                     {this.state.sesion === true &&
-                        <li className="nav-link">
-                            <Link to="/favoritos">Favoritos</Link>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/favoritos">Favoritos</Link>
                         </li>
                     }
                     {this.state.sesion === true &&
                         <li className="nav-item ml-auto">
-                            <Link to="/logout">Cerrar sesion</Link>
+                            <Link className="nav-link"  to="/logout">Cerrar sesion</Link>
                         </li>
                     }
                 </ul>
