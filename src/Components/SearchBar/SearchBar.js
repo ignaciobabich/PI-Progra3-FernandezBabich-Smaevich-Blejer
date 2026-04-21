@@ -1,12 +1,51 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
-function SearchBar() {
-    return (
-        <form className="search-form">
-            <input type="text" className="" name="searchData" placeholder="Buscar..."/>
-            <button type="submit" className="btn btn-success btn-sm">Buscar</button>
-        </form>
-    )
+class SearchBar extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            searchData: '',
+            tipo: 'movie'
+        }
+    }
+
+    controlarCambios(event, campo) {
+        this.setState({
+            [campo]: event.target.value
+        })
+    }
+
+    buscar(event) {
+        event.preventDefault();
+        if (this.state.searchData !== '') {
+            this.props.history.push('/resultados/' + this.state.tipo + '/' + this.state.searchData);
+        }
+    }
+
+    render() {
+        return (
+            <form className="search-form" onSubmit={(event) => this.buscar(event)}>
+                <input
+                    type="text"
+                    name="searchData"
+                    placeholder="Buscar..."
+                    value={this.state.searchData}
+                    onChange={(event) => this.controlarCambios(event, 'searchData')}
+                />
+                <select
+                    className="form-control"
+                    value={this.state.tipo}
+                    onChange={(event) => this.controlarCambios(event, 'tipo')}
+                    style={{maxWidth: '130px'}}
+                >
+                    <option value="movie">Peliculas</option>
+                    <option value="tv">Series</option>
+                </select>
+                <button type="submit" className="btn btn-success btn-sm">Buscar</button>
+            </form>
+        )
+    }
 }
 
-export default SearchBar;
+export default withRouter(SearchBar);

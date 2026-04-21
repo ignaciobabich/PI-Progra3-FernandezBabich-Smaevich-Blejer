@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Favoritos from '../../Screens/Favoritos/Favoritos';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import Cookies from 'universal-cookie';
 
@@ -10,20 +9,12 @@ class Header extends Component {
         super(props);
         this.state = {
             sesion: false
-
         };
     }
 
-    cambiarEstado() {
-        if(this.state.sesion === false) {
-            this.setState({
-                sesion: true
-            })
-        }
-        else{
-            this.setState({
-                sesion: false
-            })
+    componentDidMount() {
+        if (cookies.get('sesion')) {
+            this.setState({ sesion: true });
         }
     }
 
@@ -43,20 +34,30 @@ class Header extends Component {
                     <li className="nav-link">
                         <Link to="/tvshows">Series</Link>
                     </li>
-                    <li className="nav-link">
-                        <Link to="/favoritos">Favoritos</Link>
-                    </li>
-                    <li className="nav-item ml-auto">
-                        <Link to="/register">Register</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link to="/login">Login</Link>
-                    </li>
+                    {this.state.sesion === false &&
+                        <li className="nav-item ml-auto">
+                            <Link to="/register">Crear Cuenta</Link>
+                        </li>
+                    }
+                    {this.state.sesion === false &&
+                        <li className="nav-item">
+                            <Link to="/login">Login</Link>
+                        </li>
+                    }
+                    {this.state.sesion === true &&
+                        <li className="nav-link">
+                            <Link to="/favoritos">Favoritos</Link>
+                        </li>
+                    }
+                    {this.state.sesion === true &&
+                        <li className="nav-item ml-auto">
+                            <Link to="/logout">Cerrar sesion</Link>
+                        </li>
+                    }
                 </ul>
             </nav>
             </div>
             </React.Fragment>
-
         )
     }
 }

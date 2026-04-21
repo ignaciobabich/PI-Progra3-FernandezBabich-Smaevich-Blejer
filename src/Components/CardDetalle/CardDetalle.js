@@ -1,60 +1,69 @@
-import React, { Component } from "react";  
-//import { Link } from "react-router-dom/cjs/react-router-dom.min";
-import {Link} from 'react-router-dom';
-import Detalle from '../../Screens/Detalle/Detalle';
+import React, { Component } from "react";
+import Cookies from 'universal-cookie';
 
+const cookies = new Cookies();
 
 class CardDetalle extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
-            textoBoton: "Ver Mas",
-            ClaseOculta: "oculta",
             Favoritos: "🩶"
         };
     }
 
-    cambiarEstado() {
-        if(this.state.textoBoton === "Ver Mas"){
-            this.setState({
-                textoBoton: "Ver Menos",
-                ClaseOculta: "abierta"
-            })
-        }
-        else{
-            this.setState({
-                textoBoton:"Ver Mas",
-                ClaseOculta: "oculta"
-            })
+    cambiarEstadoFav() {
+        if (this.state.Favoritos === "🩶") {
+            this.setState({ Favoritos: "♥️" });
+            this.agregarAFavoritos(this.props.id);
+        } else {
+            this.setState({ Favoritos: "🩶" });
+            this.quitarDeFavoritos(this.props.id);
         }
     }
 
-    cambiarEstadoFav() {
-        if(this.state.Favoritos === "🩶"){
-            this.setState({
-                Favoritos: "♥️"
-            })
-        } else {
-                this.setState({Favoritos: "🩶"})
-            }
-        }
+    agregarAFavoritos(id) {
+        const tipoStorage = this.props.tipo === 'tv' ? 'favoritos-series' : 'favoritos-peliculas';
+        let favoritos = localStorage.getItem(tipoStorage);
+        let favoritosAgregados = favoritos ? JSON.parse(favoritos) : [];
+        favoritosAgregados.push(id);
+        localStorage.setItem(tipoStorage, JSON.stringify(favoritosAgregados));
+    }
 
+    quitarDeFavoritos(id) {
+        const tipoStorage = this.props.tipo === 'tv' ? 'favoritos-series' : 'favoritos-peliculas';
+        let favoritos = localStorage.getItem(tipoStorage);
+        let favoritosAgregados = favoritos ? JSON.parse(favoritos) : [];
+        let favoritosFiltrados = favoritosAgregados.filter(function(favId) {
+            return favId !== id;
+        });
+        localStorage.setItem(tipoStorage, JSON.stringify(favoritosFiltrados));
+    }
 
-    render(){
-        return(
+    render() {
+        const tieneSesion = cookies.get('sesion') ? true : false;
+
+        return (
             <div className="container">
                 <h2 class="alert alert-primary">{this.props.nombre}</h2>
 
-            <section class= "row">
-                <img class="col-md-6" src= {'https://image.tmdb.org/t/p/w342/' + this.props.imagen}  alt/>
-                <section class="col-md-6 info">
-                    <h3>Descripcion</h3>
-                    <p class="description"> {this.props.descripcion} </p> 
-                    <p clas="mt-0 mb-0" id="release-date"> <strong>Fechas de estreno:</strong> {this.props.date} </p>
-                    <p clas="mt-0 mb-0 length"> <strong>puntuacion:</strong> {this.props.puntuacion} </p>
-
+                <section class="row">
+                    <img class="col-md-6" src={'https://image.tmdb.org/t/p/w342/' + this.props.imagen} alt/>
+                    <section class="col-md-6 info">
+                        <h3>Descripcion</h3>
+                        <p class="description">{this.props.descripcion}</p>
+                        <p clas="mt-0 mb-0" id="release-date"><strong>Fecha de estreno:</strong> {this.props.date}</p>
+                        <p clas="mt-0 mb-0"><strong>Puntuacion:</strong> {this.props.puntuacion}</p>
+                        {this.props.duracion &&
+                            <p clas="mt-0 mb-0"><strong>Duracion:</strong> {this.props.duracion} min</p>
+                        }
+                        {this.props.generos &&
+                            <p clas="mt-0 mb-0"><strong>Genero:</strong> {this.props.generos.map((genero) => genero.name + ' ')}</p>
+                        }
+                        {tieneSesion &&
+                            <button onClick={() => this.cambiarEstadoFav()}>{this.state.Favoritos}</button>
+                        }
+                    </section>
                 </section>
-            </section>
             </div>
         )
     }
