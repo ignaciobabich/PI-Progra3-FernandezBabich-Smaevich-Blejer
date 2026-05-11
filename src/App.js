@@ -11,6 +11,7 @@ import SectionPelis from './Components/SectionPelis/SectionPelis';
 import TVShows from './Components/TVShows/TVShows';
 import Favoritos from './Screens/Favoritos/Favoritos';
 import LogOut from './Screens/LogOut/LogOut';
+import Resultados from './Screens/Resultados/Resultados';
 
 
 
