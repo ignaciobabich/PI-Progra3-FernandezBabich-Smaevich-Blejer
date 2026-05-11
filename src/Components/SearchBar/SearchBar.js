@@ -48,8 +48,4 @@ class SearchBar extends Component {
     }
 }
 
-<<<<<<< HEAD
 export default withRouter(SearchBar);
-=======
-export default withRouter(SearchBar);
->>>>>>> 6c422ba8257506e99980be146bce198175e3f41c
