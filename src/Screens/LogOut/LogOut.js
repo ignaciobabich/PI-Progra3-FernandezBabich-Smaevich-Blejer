@@ -1,17 +1,19 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import Cookies from "universal-cookie";
 
 const cookies = new Cookies();
 
-class LogOut extends Component{
-    componentDidMount(){
-        cookies.remove("sesion")
-        localStorage.removeItem("usuarios")
-        this.props.history.push("/");
+class LogOut extends Component {
+    componentDidMount() {
+        cookies.remove('sesion');
+        this.props.history.push('/');
     }
-    render(){
-        return null;
+
+    render() {
+        return (
+            null
+        )
     }
 }
 
-export default LogOut
+export default LogOut;

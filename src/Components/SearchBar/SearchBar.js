@@ -1,49 +1,55 @@
-import React, {Component} from 'react';
-import { withRouter } from 'react-router-dom/cjs/react-router-dom.min';
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
-class SearchBar extends Component{
-    constructor(props){
+class SearchBar extends Component {
+    constructor(props) {
         super(props);
-        this.state={
-            data: "", tipo: "movie"
+        this.state = {
+            searchData: '',
+            tipo: 'movie'
         }
     }
-    controlarCambios(event, campo){
+
+    controlarCambios(event, campo) {
         this.setState({
-            [campo]:event.target.value
-            })
+            [campo]: event.target.value
+        })
     }
-    elegirPeli(){
-        this.setState({ tipo: "movie"})
-    }
-    elegirSerie(){
-        this.setState({ tipo: "tv"})
-    }
-    Busqueda(event){
+
+    buscar(event) {
         event.preventDefault();
-        if(this.state.data === ""){
-            return;
+        if (this.state.searchData !== '') {
+            this.props.history.push('/resultados/' + this.state.tipo + '/' + this.state.searchData);
         }
-        this.props.history.push(`/resultados/${this.state.tipo}/${this.state.data}`)
     }
 
-    render(){
+    render() {
         return (
-            <form className="search-form" onSubmit={(event) => this.Busqueda(event)}>
-                <input type="text" className="" name="searchData" placeholder="Buscar..." value={this.state.data}
-                onChange={(event) => this.controlarCambios(event, "data")}/>
+            <form className="search-form" onSubmit={(event) => this.buscar(event)}>
+                <input
+                    type="text"
+                    name="searchData"
+                    placeholder="Buscar..."
+                    value={this.state.searchData}
+                    onChange={(event) => this.controlarCambios(event, 'searchData')}
+                />
+                <select
+                    className="form-control"
+                    value={this.state.tipo}
+                    onChange={(event) => this.controlarCambios(event, 'tipo')}
+                    style={{maxWidth: '130px'}}
+                >
+                    <option value="movie">Peliculas</option>
+                    <option value="tv">Series</option>
+                </select>
                 <button type="submit" className="btn btn-success btn-sm">Buscar</button>
-                <div>
-                    <label htmlFor="movie"> Peliculas </label>
-                    <input type="radio" id="movie" name="tipoBusqueda" onClick={() => this.elegirPeli()}/>
-
-                    <label htmlFor="tv"> Series </label>
-                    <input type="radio" id="tv" name="tipoBusqueda" onClick={() => this.elegirSerie()}/>
-                </div>
-                
             </form>
         )
     }
 }
 
+<<<<<<< HEAD
 export default withRouter(SearchBar);
+=======
+export default withRouter(SearchBar);
+>>>>>>> 6c422ba8257506e99980be146bce198175e3f41c
