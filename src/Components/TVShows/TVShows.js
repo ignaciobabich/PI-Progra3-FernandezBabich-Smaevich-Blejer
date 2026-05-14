@@ -1,28 +1,22 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import Card from "../Card/Card";
 import { Link } from "react-router-dom";
 import Loader from "../Loader/Loader";
 
-class TVShows extends Component {
-    constructor() {
-        super();
-        this.state = {
-            peliculas: []
-        };
-    }
+function TVShows () {
+   const [peliculas, setPeliculas]= useState([])
 
-    componentDidMount() {
+    useEffect(()=> {
         fetch('https://api.themoviedb.org/3/discover/tv?api_key=6ee91af43dc9c7cc853f7185e80bbf53')
             .then(response => response.json())
             .then(data => {
-                this.setState({
-                    peliculas: data.results.slice(0, 4)
-                });
+                setPeliculas(data.results.slice(0, 4)
+                )
             })
             .catch((error) => console.log(error));
-    }
+    }, [])
 
-    render() {
+
         return (
             <>
                 <div className="alert alert-primary">
@@ -30,10 +24,10 @@ class TVShows extends Component {
                     <Link to="/tvshows" >Ver todas</Link>
                 </div>
                 <section className="row cards" id="movies">
-                    {this.state.peliculas.length === 0 ? (
+                    {peliculas.length === 0 ? (
                         <Loader />
                     ) : (
-                        this.state.peliculas.map((peli) =>
+                        peliculas.map((peli) =>
                             <Card className="single-card-movie"
                                 key={peli.id}
                                 id={peli.id}
@@ -48,6 +42,6 @@ class TVShows extends Component {
             </>
         );
     }
-}
+
 
 export default TVShows;

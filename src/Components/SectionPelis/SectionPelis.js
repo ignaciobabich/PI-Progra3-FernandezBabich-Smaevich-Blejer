@@ -1,28 +1,21 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import Card from "../Card/Card";
 import { Link } from "react-router-dom";
 import Loader from "../Loader/Loader";
 
-class SectionPelis extends Component {
-    constructor() {
-        super();
-        this.state = {
-            peliculas: []
-        };
-    }
+function SectionPelis() {
+    const [peliculas, setPeliculas]= useState([])
 
-    componentDidMount() {
+    useEffect(()=> {
         fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=6ee91af43dc9c7cc853f7185e80bbf53')
             .then(response => response.json())
             .then(data => {
-                this.setState({
-                    peliculas: data.results.slice(0, 4)
-                });
+                setPeliculas(data.results.slice(0, 4)
+                );
             })
             .catch((error) => console.log(error));
-    }
+    }, [])
 
-    render() {
         return (
             <React.Fragment>
                 <div className="alert alert-primary">
@@ -30,8 +23,8 @@ class SectionPelis extends Component {
                     <Link to="/sectionpelis" >Ver todas</Link>
                 </div>
                 <section className="row cards" id="movies">
-                    {this.state.peliculas.length === 0 ? (<Loader />) : (
-                        this.state.peliculas.map((peli) =>
+                    {peliculas.length === 0 ? (<Loader />) : (
+                        peliculas.map((peli) =>
                             <Card className="single-card-movie"
                                 key={peli.id}
                                 id={peli.id}
@@ -45,7 +38,7 @@ class SectionPelis extends Component {
                 </section>
             </React.Fragment>
         )
-    }
+    
 }
 
 export default SectionPelis;

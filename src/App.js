@@ -12,7 +12,7 @@ import Series from './Screens/Series/Series';
 import Favoritos from './Screens/Favoritos/Favoritos';
 import Resultados from './Screens/Resultados/Resultados';
 import LogOut from './Screens/LogOut/LogOut';
-import Resultados from './Screens/Resultados/Resultados';
+
 
 function App() {
   return (

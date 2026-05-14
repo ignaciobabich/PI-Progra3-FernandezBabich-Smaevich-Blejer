@@ -1,42 +1,38 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 
-class SearchBar extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            searchData: '',
-            tipo: 'movie'
-        }
+function SearchBar (props) {
+    const [searchData, setsearchdata] = useState ("")
+    const [tipo, setTipo] = useState("movie")
+        
+    
+    function controlarCambios(event) {
+        setsearchdata (event.target.value) 
+        setTipo (event.target.value)
+        
     }
 
-    controlarCambios(event, campo) {
-        this.setState({
-            [campo]: event.target.value
-        })
-    }
-
-    buscar(event) {
+    function buscar(event) {
         event.preventDefault();
-        if (this.state.searchData !== '') {
-            this.props.history.push('/resultados/' + this.state.tipo + '/' + this.state.searchData);
+        if (searchData !== '') {
+            props.history.push('/resultados/' + tipo + '/' + searchData);
         }
     }
 
-    render() {
+    
         return (
-            <form className="search-form" onSubmit={(event) => this.buscar(event)}>
+            <form className="search-form" onSubmit={(event) => buscar(event)}>
                 <input
                     type="text"
                     name="searchData"
                     placeholder="Buscar..."
-                    value={this.state.searchData}
-                    onChange={(event) => this.controlarCambios(event, 'searchData')}
+                    value={searchData}
+                    onChange={(event) => controlarCambios(event, 'searchData')}
                 />
                 <select
                     className="form-control"
-                    value={this.state.tipo}
-                    onChange={(event) => this.controlarCambios(event, 'tipo')}
+                    value={tipo}
+                    onChange={(event) => controlarCambios(event, 'tipo')}
                     style={{maxWidth: '130px'}}
                 >
                     <option value="movie">Peliculas</option>
@@ -45,7 +41,7 @@ class SearchBar extends Component {
                 <button type="submit" className="btn btn-success btn-sm">Buscar</button>
             </form>
         )
-    }
+    
 }
 
 export default withRouter(SearchBar);

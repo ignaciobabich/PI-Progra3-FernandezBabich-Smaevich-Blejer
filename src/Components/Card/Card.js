@@ -3,6 +3,7 @@ import "./Card.css";
 import { Link } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 
+
 const cookies = new Cookies();
 
 class Card extends Component {
